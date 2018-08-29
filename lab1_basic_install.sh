@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # setup environment
 source /opt/ros/kinetic/setup.bash
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
