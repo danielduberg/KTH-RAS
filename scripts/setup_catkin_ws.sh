@@ -32,6 +32,13 @@ source ~/.bashrc
 # Init workspace
 catkin_init_workspace
 wstool init
+
+# Change from symbolic link to actual CMakeLists.txt file in catkin workspace
+cd ~/catkin_ws/src
+if [ -L CMakeLists.txt ]; then
+  mv CMakeLists.txt CMakeLists.txt.bak
+  cp /opt/ros/kinetic/share/catkin/cmake/toplevel.cmake CMakeLists.txt
+fi
  
 # merge rosinstall files
 cd ~/catkin_ws/src
