@@ -38,10 +38,14 @@ cd ~/catkin_ws/src
 if [ "$1" = "lab" ] || [ "$1" = "both" ]; then
   wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/rosinstall/lab.rosinstall
   wstool merge lab.rosinstall
+  # Clean up
+  rm lab.rosinstall
 fi
 if [ "$1" = "project" ] || [ "$1" = "both" ]; then
   wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/rosinstall/project.rosinstall
   wstool merge project.rosinstall
+  # Clean up
+  rm project.rosinstall
 fi
 wstool update
 
