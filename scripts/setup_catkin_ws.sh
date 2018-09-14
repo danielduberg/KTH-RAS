@@ -7,6 +7,12 @@ addToBashrc() {
   fi
 }
 
+addToFileIfNotThere() {
+  if ! grep -qF "$1" "$2"; then
+    echo "$1" >> $2
+  fi
+}
+
 # Check correct number of arguments
 if [ "$#" -gt "1" ]; then
   (>&2 echo "You should only supply one argument")
@@ -39,6 +45,11 @@ if [ -L CMakeLists.txt ]; then
   mv CMakeLists.txt CMakeLists.txt.bak
   cp /opt/ros/kinetic/share/catkin/cmake/toplevel.cmake CMakeLists.txt
 fi
+
+# Make it so all files are shown in QTCreator
+addToFileIfNotThere "# Add custom (non compiling) targets so launch scripts and python files show up in QT Creator's project view." ~/catkin_ws/src/CMakeLists.txt
+addToFileIfNotThere "file(GLOB_RECURSE EXTRA_FILES */*)" ~/catkin_ws/src/CMakeLists.txt
+addToFileIfNotThere "add_custom_target(${PROJECT_NAME}_OTHER_FILES ALL WORKING_DIRECTORY ${PROJECT_SOURCE_DIR} SOURCES ${EXTRA_FILES})" ~/catkin_ws/src/CMakeLists.txt
  
 # merge rosinstall files
 cd ~/catkin_ws/src
