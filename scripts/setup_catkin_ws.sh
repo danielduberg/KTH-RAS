@@ -49,6 +49,13 @@ if [ "$1" = "project" ] || [ "$1" = "both" ]; then
 fi
 wstool update
 
+if [ "$1" = "project" ] || [ "$1" = "both" ]; then
+  wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/scripts/install_hardware_specific.sh
+  bash install_hardware_specific.sh
+  # Clean up
+  rm install_hardware_specific.sh
+fi
+
 # Build and source again
 cd ~/catkin_ws
 catkin_make
