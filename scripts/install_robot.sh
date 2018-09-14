@@ -22,7 +22,7 @@ sudo mv 20auto-upgrades /etc/apt/apt.conf.d/20auto-upgrades
 # Install ROS and setup catkin workspace
 wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/scripts/install_computer.sh
 chmod +x install_computer.sh
-sh ./install_computer.sh "$@"
+bash ./install_computer.sh "$@"
 
 # Clean up
 rm install_computer.sh
