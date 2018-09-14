@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Only adds the argument to $HOME/.bashrc if the line is not there yet
 addToBashrc() {
   if ! grep -qF "$1" "$HOME/.bashrc"; then
@@ -23,6 +25,10 @@ fi
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
 
+# setup environment
+addToBashrc "source /opt/ros/kinetic/setup.bash"
+source ~/.bashrc
+
 # Init workspace
 catkin_init_workspace
 wstool init
@@ -30,10 +36,10 @@ wstool init
 # merge rosinstall files
 cd ~/catkin_ws/src
 if [ "$1" = "lab" ] || [ "$1" = "both" ]; then
-  wget https://raw.githubusercontent.com/KTH-RAS/ras_install/kinetic-2018/rosinstall/lab.rosinstall
+  wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/rosinstall/lab.rosinstall
   wstool merge lab.rosinstall
 elif [ "$1" = "project" ] || [ "$1" = "both" ]; then
-  wget https://raw.githubusercontent.com/KTH-RAS/ras_install/kinetic-2018/rosinstall/project.rosinstall
+  wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/rosinstall/project.rosinstall
   wstool merge project.rosinstall
 fi
 wstool update
