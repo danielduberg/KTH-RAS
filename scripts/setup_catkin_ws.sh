@@ -32,6 +32,12 @@ source ~/.bashrc
 # Init workspace
 catkin_init_workspace
 wstool init
+
+# Build and source
+cd ~/catkin_ws
+catkin_make
+addToBashrc "source ~/catkin_ws/devel/setup.bash"
+source ~/.bashrc
  
 # merge rosinstall files
 cd ~/catkin_ws/src
@@ -49,8 +55,7 @@ if [ "$1" = "project" ] || [ "$1" = "both" ]; then
 fi
 wstool update
 
-# Build and source
+# Build and source again
 cd ~/catkin_ws
 catkin_make
-addToBashrc "source ~/catkin_ws/devel/setup.bash"
 source ~/.bashrc
