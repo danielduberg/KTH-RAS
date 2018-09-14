@@ -57,11 +57,11 @@ fi
 wstool update
 
 if [ "$1" = "project" ] || [ "$1" = "both" ]; then
-  cd /tmp
-  wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/scripts/install_hardware_specific.sh
-  bash install_hardware_specific.sh
+  wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/scripts/install_hardware_specific.sh -O /tmp/install_hardware_specific.sh
+  chmod +x /tmp/install_hardware_specific.sh
+  bash /tmp/install_hardware_specific.sh
   # Clean up
-  rm install_hardware_specific.sh
+  rm /tmp/install_hardware_specific.sh
 fi
 
 # Build and source again
