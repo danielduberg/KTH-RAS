@@ -11,4 +11,4 @@ chmod +x setup_catkin_ws.sh
 sh ./setup_catkin_ws.sh "$@"
 
 # Clean up
-rm install_ros.sh setup_catkin_ws.sh
+# rm install_ros.sh setup_catkin_ws.sh
