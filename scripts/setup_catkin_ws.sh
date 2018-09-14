@@ -22,8 +22,8 @@ elif [ "$#" -lt "1" ]; then
   exit 2
 fi
 # Check correct argument value
-if [ "$1" != "lab" ] && [ "$1" != "project" ] && [ "$1" != "both" ]; then
-  (>&2 echo "Argument should be one of: 'lab', 'project', or 'both'")
+if [ "$1" != "lab" ] && [ "$1" != "project" ]; then
+  (>&2 echo "Argument should be one of: 'lab' or 'project'")
   exit 3
 fi
 
@@ -54,13 +54,12 @@ addToFileIfNotThere "add_custom_target(\${PROJECT_NAME}_OTHER_FILES ALL WORKING_
  
 # merge rosinstall files
 cd ~/catkin_ws/src
-if [ "$1" = "lab" ] || [ "$1" = "both" ]; then
+if [ "$1" = "lab" ]; then
   wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/rosinstall/lab.rosinstall -O lab.rosinstall
   wstool merge lab.rosinstall
   # Clean up
   rm lab.rosinstall
-fi
-if [ "$1" = "project" ] || [ "$1" = "both" ]; then
+elif [ "$1" = "project" ]; then
   wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/rosinstall/project.rosinstall -O project.rosinstall
   wstool merge project.rosinstall
   # Clean up
@@ -68,7 +67,8 @@ if [ "$1" = "project" ] || [ "$1" = "both" ]; then
 fi
 wstool update
 
-if [ "$1" = "project" ] || [ "$1" = "both" ]; then
+# Install hardware specific software
+if [ "$1" = "project" ]; then
   wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/scripts/install_hardware_specific.sh -O /tmp/install_hardware_specific.sh
   chmod +x /tmp/install_hardware_specific.sh
   bash /tmp/install_hardware_specific.sh
@@ -78,6 +78,7 @@ fi
 
 # Build and source again
 cd ~/catkin_ws
+source /opt/ros/kinetic/setup.bash
 catkin_make
 addToBashrc "source ~/catkin_ws/devel/setup.bash"
 source ~/.bashrc
