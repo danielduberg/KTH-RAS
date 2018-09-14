@@ -29,6 +29,9 @@ sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool
  
 # Install editors/ssh
 sudo apt-get install ssh emacs qtcreator vim git -y
+
+# Make it so you can run QtCreator from icon instead of terminal
+sed -i 's/Exec=qtcreator/Exec=bash -i -c qtcreator/' /usr/share/applications/qtcreator.desktop
  
 # Install ROS packages and other dependencies
 sudo apt-get install ros-kinetic-sound-play ros-kinetic-rqt-graph ros-kinetic-rqt-gui ros-kinetic-rqt-plot ros-kinetic-kobuki-soft ros-kinetic-kobuki-keyop ros-kinetic-roscpp-tutorials ros-kinetic-librealsense ros-kinetic-rgbd-launch ros-kinetic-cmake-modules ros-kinetic-camera-info-manager -y
