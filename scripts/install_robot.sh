@@ -25,4 +25,4 @@ chmod +x install_computer.sh
 sh ./install_computer.sh "$@"
 
 # Clean up
-# rm install_computer.sh
+rm install_computer.sh
