@@ -19,6 +19,9 @@ sudo chown root:root 20auto-upgrades
 sudo chmod 644 20auto-upgrades
 sudo mv 20auto-upgrades /etc/apt/apt.conf.d/20auto-upgrades
 
+# Turn off notification of new Ubuntu releases
+sudo sed -i 's/=lts/=never/g' /etc/update-manager/release-upgrades
+
 # Install ROS and setup catkin workspace
 wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/scripts/install_computer.sh
 chmod +x install_computer.sh
