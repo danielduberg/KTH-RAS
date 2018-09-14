@@ -36,6 +36,7 @@ cd ~/pyuarm
 sudo python setup.py install
 
 # Stuff
+cd ~/catkin_ws/src
 rosdep install --skip-keys=librealsense --from-paths -i ras_realsense/realsense_camera/src/
 cd ~/catkin_ws
 source ~/.bashrc
