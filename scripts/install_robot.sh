@@ -23,6 +23,7 @@ sudo mv 20auto-upgrades /etc/apt/apt.conf.d/20auto-upgrades
 sudo sed -i 's/=lts/=never/g' /etc/update-manager/release-upgrades
 
 # Install ROS and setup catkin workspace
+cd /tmp
 wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/scripts/install_computer.sh
 chmod +x install_computer.sh
 bash ./install_computer.sh "$@"
