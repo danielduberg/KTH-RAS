@@ -42,6 +42,7 @@ wstool init
 # Change from symbolic link to actual CMakeLists.txt file in catkin workspace
 cd ~/catkin_ws/src
 if [ -L CMakeLists.txt ]; then
+  # Only do this if CMakeLists.txt is a symbolic link
   mv CMakeLists.txt CMakeLists.txt.bak
   cp /opt/ros/kinetic/share/catkin/cmake/toplevel.cmake CMakeLists.txt
 fi
