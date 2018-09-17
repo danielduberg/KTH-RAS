@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash --init-file
 
 # Only adds the argument to $HOME/.bashrc if the line is not there yet
 addToBashrc() {
