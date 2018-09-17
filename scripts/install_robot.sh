@@ -29,3 +29,6 @@ bash /tmp/install_computer.sh "$@"
 
 # Clean up
 rm /tmp/install_computer.sh
+
+# Source
+source ~/.bashrc
