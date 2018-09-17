@@ -34,6 +34,9 @@ cd ~/catkin_ws/src
 # setup environment
 addToBashrc "source /opt/ros/kinetic/setup.bash"
 source ~/.bashrc
+# It might not be possible to source ~/.bashrc since this is an non-interactive shell.
+# There we also source this
+source /opt/ros/kinetic/setup.bash
 
 # Init workspace
 catkin_init_workspace
@@ -78,7 +81,9 @@ fi
 
 # Build and source again
 cd ~/catkin_ws
-source /opt/ros/kinetic/setup.bash
 catkin_make
 addToBashrc "source ~/catkin_ws/devel/setup.bash"
 source ~/.bashrc
+# It might not be possible to source ~/.bashrc since this is an non-interactive shell.
+# There we also source this
+source ~/catkin_ws/devel/setup.bash
