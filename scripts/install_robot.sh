@@ -27,6 +27,9 @@ wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/scripts/insta
 chmod +x /tmp/install_computer.sh
 bash /tmp/install_computer.sh project
 
+# Set the Unity launcher
+gsettings set com.canonical.Unity.Launcher favorites "['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://firefox.desktop', 'application://qtcreator.desktop', 'application://libreoffice-writer.desktop', 'application://libreoffice-calc.desktop', 'application://libreoffice-impress.dekstop', 'application://org.gnome.Software.dekstop', 'application://unity-control-center.desktop.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']"
+
 # Clean up
 rm /tmp/install_computer.sh
 
