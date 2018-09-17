@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash --init-file
 
 # Install ROS
 wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/scripts/install_ros.sh -O /tmp/install_ros.sh
