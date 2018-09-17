@@ -87,4 +87,3 @@ source ~/.bashrc
 # It might not be possible to source ~/.bashrc since this is an non-interactive shell.
 # There we also source this
 source ~/catkin_ws/devel/setup.bash
-echo "You should now run 'source ~/.bashrc'"
