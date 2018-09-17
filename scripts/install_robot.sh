@@ -25,7 +25,7 @@ sudo sed -i 's/=lts/=never/g' /etc/update-manager/release-upgrades
 # Install ROS and setup catkin workspace
 wget https://raw.githubusercontent.com/danielduberg/KTH-RAS/master/scripts/install_computer.sh -O /tmp/install_computer.sh
 chmod +x /tmp/install_computer.sh
-bash /tmp/install_computer.sh "$@"
+bash /tmp/install_computer.sh project
 
 # Clean up
 rm /tmp/install_computer.sh
