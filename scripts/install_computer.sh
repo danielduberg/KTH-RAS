@@ -12,3 +12,6 @@ bash /tmp/setup_catkin_ws.sh "$@"
 
 # Clean up
 rm /tmp/install_ros.sh /tmp/setup_catkin_ws.sh
+
+# Source
+source ~/.bashrc
