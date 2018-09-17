@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash --init-file
 
 # Turn of automatic updates
 touch 10periodic
